@@ -61,7 +61,7 @@ else
       git clone --depth 1 --filter=blob:none --sparse https://github.com/SaikrishnaBairamoni/autoware.ai-test ${dir}/src/autoware.ai --branch "$BRANCH"
 fi
 
-cd ${dir}/src/autoware.ai-test
+cd ${dir}/src/autoware.ai
 
 git sparse-checkout init --cone
 git sparse-checkout set messages/autoware_msgs jsk_recognition/jsk_recognition_msgs common/autoware_build_flags common/ros_observer
