@@ -51,17 +51,17 @@ while [[ $# -gt 0 ]]; do
 done
 
 cd ${dir}
-git clone --depth 1 https://github.com/usdot-fhwa-stol/carma-msgs.git ${dir}/src/CARMAMsgs --branch "$BRANCH"
-git clone --depth 1 https://github.com/usdot-fhwa-stol/carma-utils.git ${dir}/src/CARMAUtils --branch "$BRANCH"
+git clone --depth 1 https://github.com/SaikrishnaBairamoni/carma-msgs-test ${dir}/src/CARMAMsgs --branch "$BRANCH"
+git clone --depth 1 https://github.com/SaikrishnaBairamoni/carma-utils-test.git ${dir}/src/CARMAUtils --branch "$BRANCH"
 
 # Sparse checkout to only get the messages we need
 if [[ "$BRANCH" == "develop" ]] || [[ "$BRANCH" == "master" ]]; then
-      git clone --depth 1 --filter=blob:none --sparse https://github.com/usdot-fhwa-stol/autoware.ai.git ${dir}/src/autoware.ai --branch carma-"$BRANCH"
+      git clone --depth 1 --filter=blob:none --sparse https://github.com/SaikrishnaBairamoni/autoware.ai-test ${dir}/src/autoware.ai --branch carma-"$BRANCH"
 else
-      git clone --depth 1 --filter=blob:none --sparse https://github.com/usdot-fhwa-stol/autoware.ai.git ${dir}/src/autoware.ai --branch "$BRANCH"
+      git clone --depth 1 --filter=blob:none --sparse https://github.com/SaikrishnaBairamoni/autoware.ai-test ${dir}/src/autoware.ai --branch "$BRANCH"
 fi
 
-cd ${dir}/src/autoware.ai
+cd ${dir}/src/autoware.ai-test
 
 git sparse-checkout init --cone
 git sparse-checkout set messages/autoware_msgs jsk_recognition/jsk_recognition_msgs common/autoware_build_flags common/ros_observer
